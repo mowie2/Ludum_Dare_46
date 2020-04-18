@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -37,6 +38,7 @@ public class CharacterMovement : MonoBehaviour
             myRigidbody2D.velocity = v;
             jumping = false;
             gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Character/Character-jump");
+            gameObject.transform.Find("Jump Flames Light").GetComponent<Light2D>().enabled = true;
         }
     }
 
