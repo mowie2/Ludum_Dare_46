@@ -2,7 +2,7 @@
 
 public class CharacterMovement : MonoBehaviour
 {
-    private readonly float jumpForce = 350;
+    private readonly float jumpForce = 380;
     private readonly float movementPowerCost = 1;
     private readonly int moveSpeed = 3;
 
