@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class CharacterHealth : MonoBehaviour
 {
     private readonly float maxHealth = 100;
-    private float currentHealth;
 
-    private void Death()
+    private float currentHealth;
+    private TextMeshProUGUI textMeshProUGUI;
+
+    public void Death()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -18,12 +21,19 @@ public class CharacterHealth : MonoBehaviour
 
     private void Start()
     {
+        textMeshProUGUI = GameObject.Find("Health UI").GetComponent<TextMeshProUGUI>();
         currentHealth = maxHealth;
     }
 
     private void Update()
     {
+        UpdateUI();
         FallingCheck();
         if (currentHealth <= 0) Death();
+    }
+
+    private void UpdateUI()
+    {
+        textMeshProUGUI.text = string.Format("Health: {0}", currentHealth);
     }
 }

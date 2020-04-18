@@ -1,11 +1,13 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class CharacterPower : MonoBehaviour
 {
     private readonly float maxPowerLevel = 100;
 
-    [SerializeField] private float currentPowerLevel;
+    private float currentPowerLevel;
+    private TextMeshProUGUI textMeshProUGUI;
 
     public void DrainInstantly(float amount)
     {
@@ -42,7 +44,20 @@ public class CharacterPower : MonoBehaviour
 
     private void Start()
     {
+        textMeshProUGUI = GameObject.Find("Power UI").GetComponent<TextMeshProUGUI>();
         currentPowerLevel = maxPowerLevel;
         DrainOverASecond(0.5f);
+    }
+
+    private void Update()
+    {
+        if (currentPowerLevel <= 0) GetComponent<CharacterHealth>().Death();
+
+        UpdateUI();
+    }
+
+    private void UpdateUI()
+    {
+        textMeshProUGUI.text = string.Format("Power: {0}", currentPowerLevel);
     }
 }
