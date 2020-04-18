@@ -46,7 +46,7 @@ public class CharacterPower : MonoBehaviour
     {
         textMeshProUGUI = GameObject.Find("Power UI").GetComponent<TextMeshProUGUI>();
         currentPowerLevel = maxPowerLevel;
-        DrainOverASecond(0.5f);
+        DrainOverASecond(1);
     }
 
     private void Update()
@@ -58,6 +58,6 @@ public class CharacterPower : MonoBehaviour
 
     private void UpdateUI()
     {
-        textMeshProUGUI.text = string.Format("Power: {0}", currentPowerLevel);
+        textMeshProUGUI.text = string.Format("Power: {0}%", (currentPowerLevel / maxPowerLevel) * 100);
     }
 }
