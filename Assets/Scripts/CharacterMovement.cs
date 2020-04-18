@@ -62,4 +62,18 @@ public class CharacterMovement : MonoBehaviour
         myCollider2D = GetComponent<Collider2D>();
         characterPower = GetComponent<CharacterPower>();
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded()) jumping = true;
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+    }
 }
