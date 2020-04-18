@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CharacterShooting : MonoBehaviour
 {
+    private readonly float shootingPowerCost = 0;
+
     // Start is called before the first frame update
     private GameObject currentBullet;
 
@@ -22,7 +24,7 @@ public class CharacterShooting : MonoBehaviour
 
     private void Shoot(Vector3 mousePosition)
     {
-        myCharacterPower.DrainInstantly(10f);
+        myCharacterPower.DrainInstantly(shootingPowerCost);
 
         Vector3 currentPositon = gameObject.transform.position;
         Vector3 direction = mousePosition - currentPositon;
