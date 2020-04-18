@@ -2203,5 +2203,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport
       objectReference: {fileID: 0}
+    - target: {fileID: 6641299408460911798, guid: 1caeda8fb872b514ebacb720a6c6554b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Teleport
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1caeda8fb872b514ebacb720a6c6554b, type: 3}

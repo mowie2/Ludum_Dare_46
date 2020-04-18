@@ -1,10 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterPower : MonoBehaviour
 {
     private readonly float maxPowerLevel = 100;
+
     [SerializeField] private float currentPowerLevel;
 
     public void DrainInstantly(float amount)
