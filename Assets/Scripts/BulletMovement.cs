@@ -8,16 +8,17 @@ public class BulletMovement : MonoBehaviour
 
     private float bulletSpeed;
     private float bulletLifeTime;
+    public Vector3 direction;
     void Start()
     {
-        bulletSpeed = 5f;
-        bulletLifeTime = 1f;
-        Destroy(gameObject, 1f);
+        bulletSpeed = 3f;
+        bulletLifeTime = 5f;
+        Destroy(gameObject, bulletLifeTime);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.right * Time.deltaTime * bulletSpeed;
+        transform.position += direction * Time.deltaTime * bulletSpeed;
     }
 }
