@@ -48,6 +48,9 @@ TagManager:
   - name: Scene
     uniqueID: 4114841363
     locked: 0
+  - name: Text
+    uniqueID: 2047267419
+    locked: 0
   - name: Teleporter
     uniqueID: 1131337667
     locked: 0
