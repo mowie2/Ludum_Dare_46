@@ -22,6 +22,12 @@ public class CharacterCollision : MonoBehaviour
             GetComponent<CharacterPower>().AddPower(10);
             Destroy(col.gameObject);
         }
+
+        if (col.gameObject.CompareTag("Health Pack"))
+        {
+            GetComponent<CharacterHealth>().Heal(10);
+            Destroy(col.gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

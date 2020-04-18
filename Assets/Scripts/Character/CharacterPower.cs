@@ -41,7 +41,7 @@ public class CharacterPower : MonoBehaviour
 
     private IEnumerator PowerIncreasePopupText(float amount)
     {
-        var textComponent = transform.Find("Canvas").Find("Power Increase Text").GetComponent<TextMeshProUGUI>();
+        var textComponent = transform.Find("Canvas").Find("Stat Increase Text").GetComponent<TextMeshProUGUI>();
 
         textComponent.color = Color.white;
         textComponent.text = string.Format("+{0} power", amount);
