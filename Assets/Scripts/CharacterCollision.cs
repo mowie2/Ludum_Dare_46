@@ -36,5 +36,6 @@ public class CharacterCollision : MonoBehaviour
             myRigidbody2D.AddForce(new Vector2(pushbackOnEnemyCollision, 0) * -lastKnownDirection);
             myCharacterHealth.DoDamage(damageOnEnemyCollision);
         }
+
     }
 }

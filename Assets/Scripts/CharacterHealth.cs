@@ -41,4 +41,13 @@ public class CharacterHealth : MonoBehaviour
     {
         currentHealth -= damageAmount;
     }
+
+    public void Heal(int healAmount)
+    {
+        currentHealth += healAmount;
+        if(currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+    }
 }
