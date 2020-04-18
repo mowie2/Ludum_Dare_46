@@ -9,12 +9,6 @@ public class BulletMovement : MonoBehaviour
     private float bulletLifeTime;
     private float bulletSpeed;
 
-    // Update is called once per frame
-    private void Update()
-    {
-        transform.position += direction * Time.deltaTime * bulletSpeed;
-    }
-
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Enemy"))
