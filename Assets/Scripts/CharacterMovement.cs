@@ -2,9 +2,9 @@
 
 public class CharacterMovement : MonoBehaviour
 {
-    [SerializeField] private float jumpForce = 250f;
+    private float jumpForce = 250f;
     private bool jumping;
-    [SerializeField] private int moveSpeed = 3;
+    private int moveSpeed = 3;
     private Collider2D myCollider2D;
     private Rigidbody2D myRigidbody2D;
 
