@@ -42,3 +42,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Scene
+    uniqueID: 4114841363
+    locked: 0
+  - name: Teleporter
+    uniqueID: 1131337667
+    locked: 0
+  - name: Collectables
+    uniqueID: 3670428387
+    locked: 0
+  - name: Enemies
+    uniqueID: 2689358225
+    locked: 0
+  - name: Player
+    uniqueID: 2381767349
+    locked: 0
