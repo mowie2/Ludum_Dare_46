@@ -6,8 +6,8 @@ TagManager:
   tags:
   - Dead
   - Battery
-  - Teleport
   - Enemy
+  - Teleporter
   layers:
   - Default
   - TransparentFX

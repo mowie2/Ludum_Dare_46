@@ -1,13 +1,30 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterCollision : MonoBehaviour
 {
-    private Rigidbody2D myRigidbody2D;
-    private CharacterHealth myCharacterHealth;
-
     private const int damageOnEnemyCollision = 5;
     private const int pushbackOnEnemyCollision = 1500;
     private Vector2 lastKnownDirection;
+    private CharacterHealth myCharacterHealth;
+    private Rigidbody2D myRigidbody2D;
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Enemy"))
+        {
+            myRigidbody2D.AddForce(new Vector2(pushbackOnEnemyCollision, 0) * -lastKnownDirection);
+            myCharacterHealth.DoDamage(damageOnEnemyCollision);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Teleporter"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
 
     // Start is called before the first frame update
     private void Start()
@@ -27,15 +44,5 @@ public class CharacterCollision : MonoBehaviour
         {
             lastKnownDirection = new Vector2(-1, 0);
         }
-    }
-
-    private void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.tag == "Enemy")
-        {
-            myRigidbody2D.AddForce(new Vector2(pushbackOnEnemyCollision, 0) * -lastKnownDirection);
-            myCharacterHealth.DoDamage(damageOnEnemyCollision);
-        }
-
     }
 }
