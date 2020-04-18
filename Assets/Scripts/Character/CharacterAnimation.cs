@@ -3,8 +3,9 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class CharacterAnimation : MonoBehaviour
 {
-    // Start is called before the first frame update
     private float previousheight;
+
+    private Transform statIncreaseCanvas;
 
     private bool IsFalling()
     {
@@ -26,5 +27,20 @@ public class CharacterAnimation : MonoBehaviour
 
     private void Start()
     {
+        statIncreaseCanvas = transform.Find("Text Canvas");
+    }
+
+    private void Update()
+    {
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        if (Input.GetAxis("Horizontal") < 0)
+        {
+            gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+
+        statIncreaseCanvas.eulerAngles = Vector3.zero;
     }
 }
