@@ -9,6 +9,12 @@ public class CharacterPower : MonoBehaviour
     private float currentPowerLevel;
     private TextMeshProUGUI textMeshProUGUI;
 
+    public void AddPower(float amount)
+    {
+        currentPowerLevel += amount;
+        StartCoroutine(PowerIncreasePopupText(amount));
+    }
+
     public void DrainInstantly(float amount)
     {
         currentPowerLevel -= amount;
@@ -24,27 +30,12 @@ public class CharacterPower : MonoBehaviour
         StopCoroutine(coroutine);
     }
 
-    private void AddPower(float amount)
-    {
-        currentPowerLevel += amount;
-        StartCoroutine(PowerIncreasePopupText(amount));
-    }
-
     private IEnumerator DrainPower(float drainAmount)
     {
         while (true)
         {
             currentPowerLevel -= drainAmount;
             yield return new WaitForSeconds(1);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Battery"))
-        {
-            AddPower(10);
-            Destroy(collision.gameObject);
         }
     }
 
