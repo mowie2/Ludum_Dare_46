@@ -2,30 +2,23 @@
 
 public class CharacterMovement : MonoBehaviour
 {
-    [SerializeField] private float jumpForce = 100f;
+    [SerializeField] private float jumpForce = 250f;
     private bool jumping;
-    [SerializeField] private int maxSpeed = 5;
-    [SerializeField] private int movementForce = 5;
+    [SerializeField] private int moveSpeed = 3;
     private Collider2D myCollider2D;
     private Rigidbody2D myRigidbody2D;
 
     private void FixedUpdate()
     {
-        var horizontal = Input.GetAxis("Horizontal");
-        var vertical = 0f;
+        myRigidbody2D.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, myRigidbody2D.velocity.y);
 
         if (jumping)
         {
-            vertical = jumpForce;
+            myRigidbody2D.AddForce(new Vector2(0, jumpForce));
+            Vector3 v = myRigidbody2D.velocity;
+            v.y = Mathf.Clamp(v.y, 0, 10);
+            myRigidbody2D.velocity = v;
             jumping = false;
-        }
-
-        var movement = new Vector2(horizontal, vertical);
-        myRigidbody2D.AddForce(movement * movementForce);
-
-        if (myRigidbody2D.velocity.magnitude > maxSpeed)
-        {
-            myRigidbody2D.velocity = myRigidbody2D.velocity.normalized * maxSpeed;
         }
     }
 
