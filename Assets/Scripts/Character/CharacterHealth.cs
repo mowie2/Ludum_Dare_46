@@ -29,7 +29,7 @@ public class CharacterHealth : MonoBehaviour
     {
         UpdateUI();
         FallingCheck();
-        if (currentHealth <= 0) Death();
+        
     }
 
     private void UpdateUI()
@@ -40,6 +40,7 @@ public class CharacterHealth : MonoBehaviour
     public void DoDamage(int damageAmount)
     {
         currentHealth -= damageAmount;
+        if (currentHealth <= 0) Death();
     }
 
     public void Heal(int healAmount)

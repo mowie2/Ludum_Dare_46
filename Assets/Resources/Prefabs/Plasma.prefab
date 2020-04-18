@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3954230366991862475}
   - component: {fileID: 3954230366991862474}
   - component: {fileID: 1002598651}
-  m_Layer: 0
+  - component: {fileID: -8670008297742088739}
+  m_Layer: 8
   m_Name: Plasma
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,3 +141,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
+--- !u!60 &-8670008297742088739
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3954230366991862469}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 0.203125}
+      - {x: -0.359375, y: 0.0625}
+      - {x: -0.359375, y: -0.03125}
+      - {x: -0.34375, y: -0.0625}
+      - {x: 0.078125, y: -0.203125}
+      - {x: 0.296875, y: -0.203125}
+      - {x: 0.390625, y: -0.1875}
+      - {x: 0.4375, y: -0.171875}
+      - {x: 0.4375, y: 0.140625}
+      - {x: 0.40625, y: 0.203125}

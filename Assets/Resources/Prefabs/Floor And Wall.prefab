@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2153371258414295084}
   - component: {fileID: 2153371258414295075}
   - component: {fileID: 9219090411351689987}
+  - component: {fileID: -5057876132159596429}
   m_Layer: 0
   m_Name: Floor And Wall
   m_TagString: Untagged
@@ -111,3 +112,24 @@ PolygonCollider2D:
       - {x: 0.5, y: -0.5}
       - {x: 0.5, y: -0.203125}
       - {x: -0.5, y: -0.203125}
+--- !u!50 &-5057876132159596429
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2153371258414295073}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
