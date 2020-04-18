@@ -36,4 +36,9 @@ public class CharacterHealth : MonoBehaviour
     {
         textMeshProUGUI.text = string.Format("Health: {0}", currentHealth);
     }
+
+    public void DoDamage(int damageAmount)
+    {
+        currentHealth -= damageAmount;
+    }
 }
