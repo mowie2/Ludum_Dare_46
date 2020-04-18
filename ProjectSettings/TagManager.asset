@@ -9,7 +9,7 @@ TagManager:
   - Enemy
   - Teleporter
   - Bullet
-  - Scene
+  - Health Pack
   layers:
   - Default
   - TransparentFX
