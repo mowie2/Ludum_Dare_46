@@ -24,20 +24,6 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded()) jumping = true;
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
-        }
-    }
-
     private void FixedUpdate()
     {
         DrainPowerFromMoving();
@@ -54,23 +40,6 @@ public class CharacterMovement : MonoBehaviour
             jumping = false;
             gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Character/Character-jump");
         }
-    }
-
-    private void LateUpdate()
-    {
-        if (IsFalling())
-        {
-            gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Character/Character");
-        }
-    }
-
-    private bool IsFalling()
-    {
-        float currentheight = transform.position.y;
-        float travel = currentheight - previousheight;
-
-        previousheight = currentheight;
-        return travel < 0;
     }
 
     private bool IsGrounded()
