@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3954230366991862469}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 1
   m_Color: {r: 0.039215688, g: 0.72156864, b: 0.13725491, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.46
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000137f43f5c3d76e43e34ac6da91594ca0b5e2f68d
   m_LightCookieSprite: {fileID: 0}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffSize: 5.57
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
   - {x: -0.77023953, y: -0.07212132, z: 0}

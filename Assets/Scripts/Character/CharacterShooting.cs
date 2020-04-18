@@ -5,25 +5,19 @@ using UnityEngine;
 public class CharacterShooting : MonoBehaviour
 {
     // Start is called before the first frame update
-    GameObject currentBullet;
-    CharacterPower myCharacterPower;
-    
-    void Start()
-    {
-        currentBullet = Resources.Load<GameObject>("Prefabs/Plasma");
-        myCharacterPower = GetComponent<CharacterPower>();
-    }
+    private GameObject currentBullet;
 
-    // Update is called once per frame
-    void Update()
-    {
+    private CharacterPower myCharacterPower;
+    private Transform turretTransform;
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Shoot(mousePosition);
-        }
-   
+    private void RotateTurrentToMouse(Vector3 mousePosition)
+    {
+        Vector3 currentPositon = gameObject.transform.position;
+        Vector3 direction = mousePosition - currentPositon;
+        direction.Normalize();
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        turretTransform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
     private void Shoot(Vector3 mousePosition)
@@ -34,10 +28,28 @@ public class CharacterShooting : MonoBehaviour
         Vector3 direction = mousePosition - currentPositon;
         direction.Normalize();
 
-        GameObject bullet =  Instantiate(currentBullet, currentPositon, Quaternion.identity);
+        GameObject bullet = Instantiate(currentBullet, turretTransform.position, Quaternion.identity);
         bullet.GetComponent<BulletMovement>().direction = direction;
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         bullet.transform.rotation = Quaternion.Euler(0, 0, angle);
+    }
+
+    private void Start()
+    {
+        currentBullet = Resources.Load<GameObject>("Prefabs/Plasma");
+        myCharacterPower = GetComponent<CharacterPower>();
+        turretTransform = transform.Find("Turret");
+    }
+
+    private void Update()
+    {
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        RotateTurrentToMouse(mousePosition);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Shoot(mousePosition);
+        }
     }
 }
