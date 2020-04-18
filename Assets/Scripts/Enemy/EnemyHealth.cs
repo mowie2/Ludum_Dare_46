@@ -1,14 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+
 public class EnemyHealth : MonoBehaviour
 {
     private readonly float maxHealth = 100;
 
     private float currentHealth;
     private Slider healthBar;
-    void Start()
+
+    private void Start()
     {
         currentHealth = maxHealth;
 
@@ -17,13 +17,11 @@ public class EnemyHealth : MonoBehaviour
         healthBar.value = currentHealth;
 
         healthBar.GetComponent<CanvasGroup>().alpha = 0;
-
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
     }
 
     public void DoDamage(float damageAmount)
@@ -35,11 +33,29 @@ public class EnemyHealth : MonoBehaviour
 
         healthBar.value = currentHealth;
     }
+
     public void Death()
     {
-        Instantiate(Resources.Load<GameObject>("Prefabs/battery"), gameObject.transform.position, Quaternion.identity);
-
+        LootDrop();
         Destroy(gameObject);
     }
 
+    private void LootDrop()
+    {
+        var x = Random.Range(0, 10);
+
+        if (x >= 0 && x <= 3)
+        {
+            Instantiate(Resources.Load<GameObject>("Prefabs/Battery"), gameObject.transform.position, Quaternion.identity);
+        }
+        if (x >= 4 && x <= 6)
+        {
+            Instantiate(Resources.Load<GameObject>("Prefabs/Health Pack"), gameObject.transform.position, Quaternion.identity);
+        }
+        if (x == 9)
+        {
+            Instantiate(Resources.Load<GameObject>("Prefabs/Health Pack"), gameObject.transform.position, Quaternion.identity);
+            Instantiate(Resources.Load<GameObject>("Prefabs/Battery"), gameObject.transform.position, Quaternion.identity);
+        }
+    }
 }

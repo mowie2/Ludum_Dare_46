@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BulletMovement : MonoBehaviour
 {
@@ -10,6 +8,12 @@ public class BulletMovement : MonoBehaviour
     private float bulletDamage;
     private float bulletLifeTime;
     private float bulletSpeed;
+
+    // Update is called once per frame
+    private void Update()
+    {
+        transform.position += direction * Time.deltaTime * bulletSpeed;
+    }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
