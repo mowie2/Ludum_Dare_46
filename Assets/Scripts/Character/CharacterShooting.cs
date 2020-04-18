@@ -1,29 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CharacterShooting : MonoBehaviour
 {
     // Start is called before the first frame update
-    GameObject currentBullet;
-    CharacterPower myCharacterPower;
-    
-    void Start()
+    private GameObject currentBullet;
+
+    private CharacterPower myCharacterPower;
+
+    private void Start()
     {
         currentBullet = Resources.Load<GameObject>("Prefabs/Plasma");
         myCharacterPower = GetComponent<CharacterPower>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-
         if (Input.GetMouseButtonDown(0))
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Shoot(mousePosition);
         }
-   
     }
 
     private void Shoot(Vector3 mousePosition)
@@ -34,7 +31,7 @@ public class CharacterShooting : MonoBehaviour
         Vector3 direction = mousePosition - currentPositon;
         direction.Normalize();
 
-        GameObject bullet =  Instantiate(currentBullet, currentPositon, Quaternion.identity);
+        GameObject bullet = Instantiate(currentBullet, currentPositon, Quaternion.identity);
         bullet.GetComponent<BulletMovement>().direction = direction;
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;

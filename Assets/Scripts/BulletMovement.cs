@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BulletMovement : MonoBehaviour
 {
@@ -12,7 +10,8 @@ public class BulletMovement : MonoBehaviour
     private float bulletDamage;
 
     public Vector3 direction;
-    void Start()
+
+    private void Start()
     {
         bulletSpeed = 3f;
         bulletLifeTime = 5f;
@@ -22,7 +21,7 @@ public class BulletMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         transform.position += direction * Time.deltaTime * bulletSpeed;
     }
@@ -35,7 +34,7 @@ public class BulletMovement : MonoBehaviour
             col.gameObject.GetComponent<EnemyHealth>().DoDamage(bulletDamage);
         }
 
-        if(col != null)
+        if (col != null)
         {
             Destroy(gameObject);
         }
