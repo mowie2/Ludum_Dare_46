@@ -2,18 +2,35 @@
 
 public class CharacterMovement : MonoBehaviour
 {
-    private float jumpForce = 250f;
+    private readonly float jumpForce = 250f;
+    private readonly float movementPowerCost = 1;
+    private readonly int moveSpeed = 3;
+
+    private CharacterPower characterPower;
     private bool jumping;
-    private int moveSpeed = 3;
+    private Coroutine movementDrainCoruntine;
     private Collider2D myCollider2D;
     private Rigidbody2D myRigidbody2D;
 
+    private void DrainPowerFromMoving()
+    {
+        if (Input.GetAxis("Horizontal") != 0 && movementDrainCoruntine == null) movementDrainCoruntine = characterPower.DrainOverASecond(movementPowerCost);
+        else if (Input.GetAxis("Horizontal") == 0 && movementDrainCoruntine != null)
+        {
+            characterPower.StopPowerDrain(movementDrainCoruntine);
+            movementDrainCoruntine = null;
+        }
+    }
+
     private void FixedUpdate()
     {
+        DrainPowerFromMoving();
+
         myRigidbody2D.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, myRigidbody2D.velocity.y);
 
         if (jumping)
         {
+            characterPower.DrainInstantly(5);
             myRigidbody2D.AddForce(new Vector2(0, jumpForce));
             Vector3 v = myRigidbody2D.velocity;
             v.y = Mathf.Clamp(v.y, 0, 10);
@@ -40,13 +57,11 @@ public class CharacterMovement : MonoBehaviour
     {
         myRigidbody2D = GetComponent<Rigidbody2D>();
         myCollider2D = GetComponent<Collider2D>();
+        characterPower = GetComponent<CharacterPower>();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
-        {
-            jumping = true;
-        }
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded()) jumping = true;
     }
 }
