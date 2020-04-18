@@ -12,8 +12,6 @@ public class CharacterMovement : MonoBehaviour
     private Collider2D myCollider2D;
     private Rigidbody2D myRigidbody2D;
 
-    private float previousheight;
-
     private void DrainPowerFromMoving()
     {
         if (Input.GetAxis("Horizontal") != 0 && movementDrainCoruntine == null) movementDrainCoruntine = characterPower.DrainOverASecond(movementPowerCost);
@@ -63,6 +61,7 @@ public class CharacterMovement : MonoBehaviour
         characterPower = GetComponent<CharacterPower>();
     }
 
+    //TODO: this is animation and needs to be moved
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded()) jumping = true;
