@@ -16,6 +16,12 @@ public class CharacterCollision : MonoBehaviour
             myRigidbody2D.AddForce(new Vector2(pushbackOnEnemyCollision, 0) * -lastKnownDirection);
             myCharacterHealth.DoDamage(damageOnEnemyCollision);
         }
+
+        if (col.gameObject.CompareTag("Battery"))
+        {
+            GetComponent<CharacterPower>().AddPower(10);
+            Destroy(col.gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
