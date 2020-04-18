@@ -24,6 +24,12 @@ public class CharacterPower : MonoBehaviour
         StopCoroutine(coroutine);
     }
 
+    private void AddPower(float amount)
+    {
+        currentPowerLevel += amount;
+        StartCoroutine(PowerIncreasePopupText(amount));
+    }
+
     private IEnumerator DrainPower(float drainAmount)
     {
         while (true)
@@ -37,9 +43,19 @@ public class CharacterPower : MonoBehaviour
     {
         if (collision.CompareTag("Battery"))
         {
-            currentPowerLevel += 10;
+            AddPower(10);
             Destroy(collision.gameObject);
         }
+    }
+
+    private IEnumerator PowerIncreasePopupText(float amount)
+    {
+        var textComponent = transform.Find("Canvas").Find("Power Increase Text").GetComponent<TextMeshProUGUI>();
+
+        textComponent.color = Color.white;
+        textComponent.text = string.Format("+{0} power", amount);
+        yield return new WaitForSeconds(1);
+        textComponent.color = Color.clear;
     }
 
     private void Start()
