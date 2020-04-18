@@ -13,12 +13,14 @@ public class BulletMovement : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Bullet hit enemy");
             col.gameObject.GetComponent<EnemyHealth>().DoDamage(bulletDamage);
         }
 
         if (col != null)
         {
+            Instantiate(Resources.Load<GameObject>("Prefabs/Plasma Death After Glow"), transform.position, Quaternion.identity);
+            var deathLight = Instantiate(Resources.Load<GameObject>("Prefabs/Plasma Death"), transform.position, Quaternion.identity);
+            Destroy(deathLight, 0.05f);
             Destroy(gameObject);
         }
     }

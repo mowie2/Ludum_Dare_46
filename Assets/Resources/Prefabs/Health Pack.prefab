@@ -109,12 +109,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.3125, y: 0.953125}
-      - {x: 0.28125, y: 0.90625}
-      - {x: 0.28125, y: 0}
-      - {x: 0.71875, y: 0}
-      - {x: 0.71875, y: 0.9375}
-      - {x: 0.671875, y: 0.953125}
+    - - {x: -0.21875, y: 0.421875}
+      - {x: -0.21875, y: -0.375}
+      - {x: 0.09375, y: -0.375}
+      - {x: 0.171875, y: -0.359375}
+      - {x: 0.1875, y: -0.359375}
+      - {x: 0.1875, y: 0.421875}
 --- !u!50 &5136089775598448694
 Rigidbody2D:
   serializedVersion: 4
@@ -135,7 +135,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!1 &116251403646247500
 GameObject:
   m_ObjectHideFlags: 0
