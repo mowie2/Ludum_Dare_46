@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterPower : MonoBehaviour
 {
     private readonly float maxPowerLevel = 100;
 
     private float currentPowerLevel;
+    private Slider powerBar;
     private TextMeshProUGUI textMeshProUGUI;
 
     public void AddPower(float amount)
@@ -41,7 +43,7 @@ public class CharacterPower : MonoBehaviour
 
     private IEnumerator PowerIncreasePopupText(float amount)
     {
-        var textComponent = transform.Find("Canvas").Find("Stat Increase Text").GetComponent<TextMeshProUGUI>();
+        var textComponent = transform.Find("Text Canvas").Find("Stat Increase Text").GetComponent<TextMeshProUGUI>();
 
         textComponent.color = Color.white;
         textComponent.text = string.Format("+{0} power", amount);
@@ -52,7 +54,11 @@ public class CharacterPower : MonoBehaviour
     private void Start()
     {
         textMeshProUGUI = GameObject.Find("Power UI").GetComponent<TextMeshProUGUI>();
+        powerBar = transform.Find("Power Canvas").Find("Powerbar").GetComponent<Slider>();
+
+        powerBar.maxValue = maxPowerLevel;
         currentPowerLevel = maxPowerLevel;
+
         DrainOverASecond(1);
     }
 
@@ -65,6 +71,7 @@ public class CharacterPower : MonoBehaviour
 
     private void UpdateUI()
     {
+        powerBar.value = currentPowerLevel;
         textMeshProUGUI.text = string.Format("Power: {0}%", (currentPowerLevel / maxPowerLevel) * 100);
     }
 }
