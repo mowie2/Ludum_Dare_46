@@ -11,7 +11,9 @@ public class CharacterMovement : MonoBehaviour
     private Coroutine movementDrainCoruntine;
     private Collider2D myCollider2D;
     private Rigidbody2D myRigidbody2D;
+
     private float previousheight;
+
     private void DrainPowerFromMoving()
     {
         if (Input.GetAxis("Horizontal") != 0 && movementDrainCoruntine == null) movementDrainCoruntine = characterPower.DrainOverASecond(movementPowerCost);
@@ -19,6 +21,20 @@ public class CharacterMovement : MonoBehaviour
         {
             characterPower.StopPowerDrain(movementDrainCoruntine);
             movementDrainCoruntine = null;
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded()) jumping = true;
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
         }
     }
 
@@ -37,24 +53,24 @@ public class CharacterMovement : MonoBehaviour
             myRigidbody2D.velocity = v;
             jumping = false;
             gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Character/Character-jump");
-            InvokeRepeating("SetDefaultSprite", 0.8f, 1f);
         }
     }
 
     private void LateUpdate()
     {
-        float currentheight = transform.position.y;
-
-        var travel = currentheight - previousheight;
-        //your code
-        previousheight = currentheight;
+        if (IsFalling())
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Character/Character");
+        }
     }
-    //if you are using rigidbody use lateupdate else if Update if your directly changing transform.position
 
-    private void SetDefaultSprite()
+    private bool IsFalling()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Character/Character");
-        CancelInvoke("SetDefaultSprite");
+        float currentheight = transform.position.y;
+        float travel = currentheight - previousheight;
+
+        previousheight = currentheight;
+        return travel < 0;
     }
 
     private bool IsGrounded()
@@ -76,19 +92,5 @@ public class CharacterMovement : MonoBehaviour
         myRigidbody2D = GetComponent<Rigidbody2D>();
         myCollider2D = GetComponent<Collider2D>();
         characterPower = GetComponent<CharacterPower>();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded()) jumping = true;
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
-        }
     }
 }
