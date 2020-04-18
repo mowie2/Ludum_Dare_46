@@ -11,7 +11,7 @@ public class CharacterMovement : MonoBehaviour
     private Coroutine movementDrainCoruntine;
     private Collider2D myCollider2D;
     private Rigidbody2D myRigidbody2D;
-
+    private float previousheight;
     private void DrainPowerFromMoving()
     {
         if (Input.GetAxis("Horizontal") != 0 && movementDrainCoruntine == null) movementDrainCoruntine = characterPower.DrainOverASecond(movementPowerCost);
@@ -36,7 +36,25 @@ public class CharacterMovement : MonoBehaviour
             v.y = Mathf.Clamp(v.y, 0, 10);
             myRigidbody2D.velocity = v;
             jumping = false;
+            gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Character/Character-jump");
+            InvokeRepeating("SetDefaultSprite", 0.8f, 1f);
         }
+    }
+
+    private void LateUpdate()
+    {
+        float currentheight = transform.position.y;
+
+        var travel = currentheight - previousheight;
+        //your code
+        previousheight = currentheight;
+    }
+    //if you are using rigidbody use lateupdate else if Update if your directly changing transform.position
+
+    private void SetDefaultSprite()
+    {
+        gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Character/Character");
+        CancelInvoke("SetDefaultSprite");
     }
 
     private bool IsGrounded()
@@ -63,5 +81,14 @@ public class CharacterMovement : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded()) jumping = true;
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
+        }
     }
 }
