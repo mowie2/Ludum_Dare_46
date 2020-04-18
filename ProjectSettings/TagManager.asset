@@ -8,6 +8,8 @@ TagManager:
   - Battery
   - Enemy
   - Teleporter
+  - Bullet
+  - Scene
   layers:
   - Default
   - TransparentFX
@@ -17,9 +19,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Bullet
+  - Player
+  - Enemy
   - 
   - 
   - 
