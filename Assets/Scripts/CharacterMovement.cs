@@ -12,6 +12,8 @@ public class CharacterMovement : MonoBehaviour
     private Collider2D myCollider2D;
     private Rigidbody2D myRigidbody2D;
 
+    private float previousheight;
+
     private void DrainPowerFromMoving()
     {
         if (Input.GetAxis("Horizontal") != 0 && movementDrainCoruntine == null) movementDrainCoruntine = characterPower.DrainOverASecond(movementPowerCost);
@@ -36,6 +38,7 @@ public class CharacterMovement : MonoBehaviour
             v.y = Mathf.Clamp(v.y, 0, 10);
             myRigidbody2D.velocity = v;
             jumping = false;
+            gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Character/Character-jump");
         }
     }
 
@@ -58,10 +61,5 @@ public class CharacterMovement : MonoBehaviour
         myRigidbody2D = GetComponent<Rigidbody2D>();
         myCollider2D = GetComponent<Collider2D>();
         characterPower = GetComponent<CharacterPower>();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded()) jumping = true;
     }
 }
