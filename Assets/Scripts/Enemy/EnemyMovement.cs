@@ -20,13 +20,16 @@ public class EnemyMovement : MonoBehaviour
 
     private void DetectPlatformEdge()
     {
-        var rightSide = new Vector2(transform.position.x + 1, transform.position.y);
-        var rightHit = Physics2D.RaycastAll(rightSide, -Vector2.up, 1f);
-        if (rightHit.Length == 0) FlipMoveDirection();
 
+        // detect edge left
         var leftSide = new Vector2(transform.position.x - 1, transform.position.y);
-        var leftHit = Physics2D.RaycastAll(leftSide, -Vector2.up, 1f);
-        if (leftHit.Length == 0) FlipMoveDirection();
+        var lefthit = Physics2D.Raycast(leftSide, new Vector2(-1, -1), 1.5f);
+        if (!lefthit && moveDirection != MoveDirection.Left) FlipMoveDirection();
+        
+        // detect edge right
+        var rightSide = new Vector2(transform.position.x + 1, transform.position.y);
+        var righthit = Physics2D.Raycast(rightSide, new Vector2(1, -1), 1.5f);
+        if (!righthit && moveDirection != MoveDirection.Right) FlipMoveDirection();
     }
 
     private void FixedUpdate()
