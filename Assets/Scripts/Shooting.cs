@@ -2,7 +2,7 @@
 
 public class Shooting : MonoBehaviour
 {
-    private readonly float shootingPowerCost = 0;
+    private readonly float shootingPowerCost = 2;
 
     [SerializeField] private Color bulletColour;
     [SerializeField] private Transform bulletOrigin;

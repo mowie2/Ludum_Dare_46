@@ -31,7 +31,7 @@ public class CharacterMovement : MonoBehaviour
 
         if (jumping)
         {
-            characterPower.DrainInstantly(5);
+            characterPower.DrainInstantly(2);
             myRigidbody2D.AddForce(new Vector2(0, jumpForce));
             Vector3 v = myRigidbody2D.velocity;
             v.y = Mathf.Clamp(v.y, 0, 10);
