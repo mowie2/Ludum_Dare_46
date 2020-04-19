@@ -41,7 +41,12 @@ public class CharacterCollision : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Teleporter"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            switch (SceneManager.GetActiveScene().name)
+            {
+                case "Tutorial":
+                    SceneManager.LoadScene("Level 1");
+                    break;
+            }
         }
     }
 
