@@ -399,6 +399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2e7d644b8a0618428d8d89206587d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletColour: {r: 0.059680555, g: 0.62352943, b: 0, a: 1}
+  bulletOrigin: {fileID: 863027986607066027}
 --- !u!1 &3767362883182142675
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,6 +411,7 @@ GameObject:
   m_Component:
   - component: {fileID: 863027986607066027}
   - component: {fileID: 7689061138960125799}
+  - component: {fileID: 5253079759732046333}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -480,6 +483,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!114 &5253079759732046333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3767362883182142675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a830f4e0a4ee08a4d991b6a7a11f1b48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4702953851798465919
 GameObject:
   m_ObjectHideFlags: 0

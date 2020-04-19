@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
-public class BulletMovement : MonoBehaviour
+public class BulletCollision : MonoBehaviour
 {
-    public Vector3 direction;
-    public GameObject gameObjectBulletCameFrom;
-    private float bulletDamage;
-    private float bulletLifeTime;
-    private float bulletSpeed;
+    public GameObject GameObjectBulletCameFrom;
+
+    private readonly float bulletDamage = 20;
 
     private void DestroyBullet()
     {
@@ -23,32 +21,10 @@ public class BulletMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject == gameObjectBulletCameFrom) return;
+        if (collision.gameObject == GameObjectBulletCameFrom) return;
 
         if (collision.gameObject.CompareTag("Enemy")) collision.gameObject.GetComponent<EnemyHealth>().DoDamage(bulletDamage);
 
         if (collision != null) DestroyBullet();
-    }
-
-    private void SetGlowColor()
-    {
-        GetComponent<Light2D>().color = GetComponent<SpriteRenderer>().color;
-    }
-
-    private void Start()
-    {
-        bulletSpeed = 10f;
-        bulletLifeTime = 5f;
-        bulletDamage = 20;
-
-        Destroy(gameObject, bulletLifeTime);
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        transform.position += direction * Time.deltaTime * bulletSpeed;
-
-        SetGlowColor();
     }
 }

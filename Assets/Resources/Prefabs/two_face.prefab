@@ -938,6 +938,8 @@ GameObject:
   - component: {fileID: 232355267386921738}
   - component: {fileID: -8515836405263253453}
   - component: {fileID: 1203589873273839287}
+  - component: {fileID: 4217568578506733762}
+  - component: {fileID: 3662713307453867640}
   m_Layer: 10
   m_Name: two_face
   m_TagString: Enemy
@@ -1099,6 +1101,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e80a94ea5ad26f442ba55ffe66066edc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4217568578506733762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8387615947285665844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2e7d644b8a0618428d8d89206587d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletColour: {r: 0.9056604, g: 0, b: 0.12755714, a: 1}
+  bulletOrigin: {fileID: 4927594128893657550}
+--- !u!114 &3662713307453867640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8387615947285665844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d669b6619687d944baaa26149acf8dba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectingRange: 3
+  fireRate: 0.3
 --- !u!1 &8780338269599893067
 GameObject:
   m_ObjectHideFlags: 0
