@@ -2234,7 +2234,7 @@ GameObject:
   - component: {fileID: 2021396623}
   - component: {fileID: 2021396622}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: Background Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2512,11 +2512,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Turret Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 7139670785220961058, guid: 8e39b3577e939914ebbea3bccb1cf2d9,
-        type: 3}
-      propertyPath: detectingRange
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8272975936277610559, guid: 8e39b3577e939914ebbea3bccb1cf2d9,
         type: 3}
