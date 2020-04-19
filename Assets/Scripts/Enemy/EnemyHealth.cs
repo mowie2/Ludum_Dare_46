@@ -12,6 +12,7 @@ public class EnemyHealth : MonoBehaviour
     {
         AfterDeathText();
         LootDrop();
+
         Destroy(gameObject);
     }
 
@@ -32,7 +33,9 @@ public class EnemyHealth : MonoBehaviour
         float timeToShowText = 1;
 
         GetComponent<EnemySpeech>().Say("Arghhhh!", timeToShowText);
+
         var textCanvas = transform.Find("Text Canvas");
+        textCanvas.GetComponent<AudioSource>().Play();
         Vector3 temp = textCanvas.position;
         textCanvas.SetParent(null);
         textCanvas.position = temp;
