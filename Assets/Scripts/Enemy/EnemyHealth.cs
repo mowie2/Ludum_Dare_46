@@ -28,13 +28,15 @@ public class EnemyHealth : MonoBehaviour
 
     private void AfterDeathText()
     {
+        var textCanvas = transform.Find("Text Canvas");
+        if (textCanvas == null) return;
+
         // add random change to not say anything and more texts to say
 
         float timeToShowText = 1;
 
         GetComponent<EnemySpeech>().Say("Arghhhh!", timeToShowText);
 
-        var textCanvas = transform.Find("Text Canvas");
         textCanvas.GetComponent<AudioSource>().Play();
         Vector3 temp = textCanvas.position;
         textCanvas.SetParent(null);

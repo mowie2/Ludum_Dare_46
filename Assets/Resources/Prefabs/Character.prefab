@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7873619074991202104}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,8 @@ GameObject:
   - component: {fileID: -7991201024643674770}
   - component: {fileID: -8609788376401015379}
   - component: {fileID: 6789926161669228746}
-  m_Layer: 0
+  - component: {fileID: 1627623205}
+  m_Layer: 12
   m_Name: Character
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -279,6 +280,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f82fb517b2728c4a9b82e6c1a08232c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1627623205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3008889389452193050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87e7baf8434322c43b55d067b4350874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3767362883182142675
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,9 +303,9 @@ GameObject:
   - component: {fileID: 863027986607066027}
   - component: {fileID: 7689061138960125799}
   - component: {fileID: 5253079759732046333}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Turret
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -383,7 +396,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7091913732146049488}
   - component: {fileID: 6256425392287276271}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Innershield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,7 +412,7 @@ Transform:
   m_GameObject: {fileID: 3847125201129200011}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
+  m_LocalScale: {x: 1.4208701, y: 1.34717, z: 1}
   m_Children: []
   m_Father: {fileID: 7873619074991202104}
   m_RootOrder: 1
@@ -464,7 +477,7 @@ GameObject:
   m_Component:
   - component: {fileID: 480865898272216417}
   - component: {fileID: 3210732908308499399}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Point Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -537,7 +550,7 @@ GameObject:
   - component: {fileID: 5120120621074028460}
   - component: {fileID: 3034697891182596814}
   - component: {fileID: 8736854658316045305}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Stat Increase Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -693,7 +706,7 @@ GameObject:
   - component: {fileID: 8074231428883048885}
   - component: {fileID: 1843824334612190247}
   - component: {fileID: 514661350175941461}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Text Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -791,7 +804,7 @@ GameObject:
   - component: {fileID: 8065107012207687682}
   - component: {fileID: 4839857877697215328}
   - component: {fileID: 6651440393904192751}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Outershield
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -807,7 +820,7 @@ Transform:
   m_GameObject: {fileID: 6011001323495353401}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
+  m_LocalScale: {x: 1.67921, y: 1.5921099, z: 1}
   m_Children: []
   m_Father: {fileID: 7873619074991202104}
   m_RootOrder: 0
@@ -911,14 +924,16 @@ PolygonCollider2D:
       - {x: -0.5051244, y: 0.00707228}
       - {x: -0.4616373, y: -0.14481229}
       - {x: -0.44862834, y: -0.20368065}
-      - {x: -0.43308684, y: -0.23110291}
-      - {x: -0.4072995, y: -0.26193655}
-      - {x: -0.34264767, y: -0.3168239}
-      - {x: 0.098413326, y: -0.3201723}
-      - {x: 0.3105938, y: -0.3187062}
-      - {x: 0.39830437, y: -0.28177944}
-      - {x: 0.43375823, y: -0.25814113}
-      - {x: 0.4476847, y: -0.23204778}
+      - {x: -0.4499103, y: -0.20206732}
+      - {x: -0.43482897, y: -0.20709153}
+      - {x: -0.36405945, y: -0.21358627}
+      - {x: -0.3197064, y: -0.2151993}
+      - {x: 0.014295276, y: -0.20402992}
+      - {x: 0.13929893, y: -0.19933769}
+      - {x: 0.25197342, y: -0.20697077}
+      - {x: 0.3937161, y: -0.21402968}
+      - {x: 0.45364064, y: -0.20652226}
+      - {x: 0.46297884, y: -0.19978599}
 --- !u!1 &6820828713887429051
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,7 +944,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6850563497002532185}
   - component: {fileID: 8880587070219095702}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Freeform Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1001,7 +1016,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3227697258352441641}
   - component: {fileID: 683526604461302120}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Jump Flames Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

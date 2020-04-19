@@ -1,0 +1,33 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Grenade : MonoBehaviour
+{
+    private void DestroyGrenade()
+    {
+        var shootPlasma = GetComponent<ShootPlasma>();
+
+        for (float x = -1; x < 2; x += 0.5f)
+        {
+            for (float y = -1; y < 2; y += 0.5f)
+            {
+                if (x == 0 && y == 0) continue;
+                shootPlasma.Shoot(new Vector2(transform.position.x + x, transform.position.y + y));
+            }
+        }
+
+        Destroy(gameObject);
+    }
+
+    // Start is called before the first frame update
+    private void Start()
+    {
+        Invoke("DestroyGrenade", 3f);
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
+    }
+}
