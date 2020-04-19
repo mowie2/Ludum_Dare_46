@@ -15,7 +15,6 @@ public class CharacterCollision : MonoBehaviour
         if (col.gameObject.CompareTag("Enemy"))
         {
             myRigidbody2D.AddForce(new Vector2(pushbackOnEnemyCollision, 0) * -lastKnownDirection);
-            myCharacterHealth.DoDamage(damageOnEnemyCollision);
         }
 
         if (col.gameObject.CompareTag("Battery"))

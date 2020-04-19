@@ -39,8 +39,16 @@ public class EnemyAI : MonoBehaviour
 
     private void FlipMoveDirection()
     {
-        if (moveDirection == MoveDirection.Left) moveDirection = MoveDirection.Right;
-        else if (moveDirection == MoveDirection.Right) moveDirection = MoveDirection.Left;
+        if (moveDirection == MoveDirection.Left)
+        {
+            moveDirection = MoveDirection.Right;
+            gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        else if (moveDirection == MoveDirection.Right)
+        {
+            moveDirection = MoveDirection.Left;
+            gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -81,7 +89,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerIsInShootingRange() && shootingCoroutine == null) shootingCoroutine = StartCoroutine(ShootAtPlayer());
+        if (PlayerIsInShootingRange() && shootingCoroutine == null && fireRate > 0) shootingCoroutine = StartCoroutine(ShootAtPlayer());
 
         if (!PlayerIsInShootingRange() && shootingCoroutine != null)
         {
