@@ -1710,6 +1710,16 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3662713307453867640, guid: 737050244afc932459a21773e3908e6f,
+        type: 3}
+      propertyPath: detectingRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662713307453867640, guid: 737050244afc932459a21773e3908e6f,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4927594128893657550, guid: 737050244afc932459a21773e3908e6f,
         type: 3}
       propertyPath: m_LocalPosition.x

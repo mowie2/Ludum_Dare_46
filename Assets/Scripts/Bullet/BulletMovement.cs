@@ -6,7 +6,7 @@ public class BulletMovement : MonoBehaviour
     public Vector3 direction;
 
     private readonly float bulletLifeTime = 30;
-    private readonly float bulletSpeed = 20;
+    private readonly float bulletSpeed = 5;
 
     private void SetGlowColor()
     {
