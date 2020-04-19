@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class CharacterTurret : MonoBehaviour
+public class RotateTurret : MonoBehaviour
 {
     private Transform character;
 
