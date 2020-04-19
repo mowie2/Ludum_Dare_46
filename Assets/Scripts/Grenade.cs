@@ -29,7 +29,7 @@ public class Grenade : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        Invoke("DestroyGrenade", 0.5f);
+        Invoke("DestroyGrenade", 3f);
     }
 
     // Update is called once per frame
