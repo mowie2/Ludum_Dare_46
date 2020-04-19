@@ -8,12 +8,16 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float detectingRange;
     [SerializeField] private float fireRate;
     private MoveDirection moveDirection;
+
     private Dictionary<MoveDirection, float> moveDirectionsInFloat = new Dictionary<MoveDirection, float>();
     [SerializeField] private float moveSpeed;
     private Rigidbody2D myRigidbody2D;
     private GameObject player;
     private Shooting shootingComponent;
     private Coroutine shootingCoroutine;
+
+    private Transform healthCanvas;
+    private Transform textCanvas;
 
     private enum MoveDirection
     {
@@ -30,7 +34,6 @@ public class EnemyAI : MonoBehaviour
         Debug.DrawRay(currentPositon, direction);
 
         var raycast = Physics2D.RaycastAll(transform.position, direction, detectingRange);
-        Debug.Log(raycast.Length);
 
         foreach (var hit in raycast)
         {
@@ -76,6 +79,9 @@ public class EnemyAI : MonoBehaviour
             moveDirection = MoveDirection.Left;
             gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
         }
+
+        healthCanvas.eulerAngles = Vector3.zero;
+        textCanvas.eulerAngles = Vector3.zero;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -112,6 +118,9 @@ public class EnemyAI : MonoBehaviour
 
         int initialMoveDirection = Random.Range(0, 2);
         moveDirection = (MoveDirection)initialMoveDirection;
+
+        textCanvas = transform.Find("Text Canvas");
+        healthCanvas = transform.Find("Health Canvas");
     }
 
     private void Update()
