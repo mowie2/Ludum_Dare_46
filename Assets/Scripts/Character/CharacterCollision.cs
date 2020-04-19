@@ -19,17 +19,17 @@ public class CharacterCollision : MonoBehaviour
 
         if (col.gameObject.CompareTag("Battery"))
         {
-            GetComponent<CharacterPower>().AddPower(10);
+            GetComponent<CharacterPower>().AddPower(25);
             Destroy(col.gameObject);
         }
 
         if (col.gameObject.CompareTag("Health Pack"))
         {
-            GetComponent<CharacterHealth>().Heal(10);
+            GetComponent<CharacterHealth>().Heal(30);
             Destroy(col.gameObject);
         }
 
-        if(col.gameObject.name == "Circuit")
+        if (col.gameObject.name == "Circuit")
         {
             teleporter.GetComponent<TeleportScript>().ActivateTeleporter();
             Destroy(col.gameObject);
