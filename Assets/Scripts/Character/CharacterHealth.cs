@@ -52,9 +52,13 @@ public class CharacterHealth : MonoBehaviour
 
     private void Start()
     {
-        healthBar = GameObject.Find("Health UI").transform.Find("Slider").GetComponent<Slider>();
+        var healthUIGameObject = GameObject.Find("Health UI");
+        if (healthUIGameObject != null)
+        {
+            healthBar = healthUIGameObject.transform.Find("Slider").GetComponent<Slider>();
+            healthBar.maxValue = maxHealth;
+        }
 
-        healthBar.maxValue = maxHealth;
         currentHealth = maxHealth;
     }
 

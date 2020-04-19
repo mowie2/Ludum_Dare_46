@@ -56,9 +56,13 @@ public class CharacterPower : MonoBehaviour
 
     private void Start()
     {
-        powerBar = GameObject.Find("Power UI").transform.Find("Slider").GetComponent<Slider>();
+        var powerUIGameObject = GameObject.Find("Power UI");
+        if (powerUIGameObject != null)
+        {
+            powerBar = powerUIGameObject.transform.Find("Slider").GetComponent<Slider>();
+            powerBar.maxValue = maxPowerLevel;
+        }
 
-        powerBar.maxValue = maxPowerLevel;
         currentPowerLevel = maxPowerLevel;
 
         DrainOverASecond(1);

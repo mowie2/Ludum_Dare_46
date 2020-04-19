@@ -3,7 +3,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class CharacterMovement : MonoBehaviour
 {
-    private readonly float jumpForce = 380;
+    private readonly float jumpForce = 400;
     private readonly float movementPowerCost = 1;
     private readonly int moveSpeed = 3;
 
