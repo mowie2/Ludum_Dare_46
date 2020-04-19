@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1915665766271726117}
   - component: {fileID: 5800518971021784527}
   - component: {fileID: 4068202509792064529}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 1954488557582679107}
   - component: {fileID: 7694989091311303532}
   - component: {fileID: 7783098181419090600}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Powerbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,9 +192,9 @@ GameObject:
   - component: {fileID: -208998493550709420}
   - component: {fileID: -7991201024643674770}
   - component: {fileID: -8609788376401015379}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -491,7 +491,7 @@ GameObject:
   - component: {fileID: 5120120621074028460}
   - component: {fileID: 3034697891182596814}
   - component: {fileID: 8736854658316045305}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Stat Increase Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -647,7 +647,7 @@ GameObject:
   - component: {fileID: 8074231428883048885}
   - component: {fileID: 1843824334612190247}
   - component: {fileID: 514661350175941461}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -746,7 +746,7 @@ GameObject:
   - component: {fileID: 7159133381964340143}
   - component: {fileID: 5045201688666365044}
   - component: {fileID: 4074642628789010492}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Power Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -843,7 +843,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6850563497002532185}
   - component: {fileID: 8880587070219095702}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Freeform Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -916,7 +916,7 @@ GameObject:
   - component: {fileID: 5104609566414047945}
   - component: {fileID: 4349732549261112941}
   - component: {fileID: 6177594561463422009}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -988,7 +988,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3227697258352441641}
   - component: {fileID: 683526604461302120}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Jump Flames Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1059,7 +1059,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4036858627018474533}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}

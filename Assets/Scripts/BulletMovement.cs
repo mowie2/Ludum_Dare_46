@@ -3,31 +3,31 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class BulletMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     public Vector3 direction;
+    public GameObject gameObjectBulletCameFrom;
     private float bulletDamage;
     private float bulletLifeTime;
     private float bulletSpeed;
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void DestroyBullet()
     {
-        if (col.gameObject.CompareTag("Enemy"))
-        {
-            col.gameObject.GetComponent<EnemyHealth>().DoDamage(bulletDamage);
-        }
+        var afterDeathGlow = Instantiate(Resources.Load<GameObject>("Prefabs/Plasma Death After Glow"), transform.position, Quaternion.identity);
+        afterDeathGlow.GetComponent<Light2D>().color = GetComponent<SpriteRenderer>().color;
 
-        if (col != null)
-        {
-            var afterDeathGlow = Instantiate(Resources.Load<GameObject>("Prefabs/Plasma Death After Glow"), transform.position, Quaternion.identity);
-            afterDeathGlow.GetComponent<Light2D>().color = GetComponent<SpriteRenderer>().color;
+        var deathLight = Instantiate(Resources.Load<GameObject>("Prefabs/Plasma Death"), transform.position, Quaternion.identity);
+        deathLight.GetComponent<Light2D>().color = GetComponent<SpriteRenderer>().color;
 
-            var deathLight = Instantiate(Resources.Load<GameObject>("Prefabs/Plasma Death"), transform.position, Quaternion.identity);
-            deathLight.GetComponent<Light2D>().color = GetComponent<SpriteRenderer>().color;
+        Destroy(deathLight, 0.05f);
+        Destroy(gameObject);
+    }
 
-            Destroy(deathLight, 0.05f);
-            Destroy(gameObject);
-        }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject == gameObjectBulletCameFrom) return;
+
+        if (collision.gameObject.CompareTag("Enemy")) collision.gameObject.GetComponent<EnemyHealth>().DoDamage(bulletDamage);
+
+        if (collision != null) DestroyBullet();
     }
 
     private void SetGlowColor()
