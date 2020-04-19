@@ -28,6 +28,8 @@ public class EnemyHealth : MonoBehaviour
 
     private void AfterDeathText()
     {
+
+        if (GetComponent<EnemySpeech>() == null) return;
         var textCanvas = transform.Find("Text Canvas");
 
         // add random change to not say anything and more texts to say
