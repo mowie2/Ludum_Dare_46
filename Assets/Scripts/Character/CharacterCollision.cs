@@ -8,6 +8,7 @@ public class CharacterCollision : MonoBehaviour
     private Vector2 lastKnownDirection;
     private CharacterHealth myCharacterHealth;
     private Rigidbody2D myRigidbody2D;
+    private GameObject teleporter;
 
     private void OnCollisionEnter2D(Collision2D col)
     {
@@ -28,6 +29,12 @@ public class CharacterCollision : MonoBehaviour
             GetComponent<CharacterHealth>().Heal(10);
             Destroy(col.gameObject);
         }
+
+        if(col.gameObject.name == "Circuit")
+        {
+            teleporter.GetComponent<TeleportScript>().ActivateTeleporter();
+            Destroy(col.gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -43,6 +50,7 @@ public class CharacterCollision : MonoBehaviour
     {
         myRigidbody2D = GetComponent<Rigidbody2D>();
         myCharacterHealth = GetComponent<CharacterHealth>();
+        teleporter = GameObject.Find("Teleporter");
     }
 
     // Update is called once per frame

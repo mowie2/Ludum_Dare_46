@@ -18,6 +18,6 @@ public class TeleportScript : MonoBehaviour
 
     public void ActivateTeleporter()
     {
-        GetComponent<BoxCollider2D>().enabled = true; ;
+        GetComponent<BoxCollider2D>().enabled = true;
     }
 }
