@@ -32,7 +32,8 @@ public class EnemyHealth : MonoBehaviour
 
         float timeToShowText = 1;
 
-        GetComponent<EnemySpeech>().Say("Arghhhh!", timeToShowText);
+        var text = GetComponent<EnemySpeech>();
+        text.Say("Arghhhh!", timeToShowText);
 
         var textCanvas = transform.Find("Text Canvas");
         textCanvas.GetComponent<AudioSource>().Play();
