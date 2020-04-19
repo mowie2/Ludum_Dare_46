@@ -59,12 +59,12 @@ TagManager:
   - name: Enemies
     uniqueID: 2689358225
     locked: 0
+  - name: Wall & Floor
+    uniqueID: 2208223179
+    locked: 0
   - name: Text
     uniqueID: 2047267419
     locked: 0
   - name: Player
     uniqueID: 2381767349
-    locked: 0
-  - name: Wall & Floor
-    uniqueID: 2208223179
     locked: 0

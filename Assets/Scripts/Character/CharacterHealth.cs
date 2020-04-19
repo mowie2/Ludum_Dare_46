@@ -2,13 +2,15 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CharacterHealth : MonoBehaviour
 {
     private readonly float maxHealth = 100;
 
     private float currentHealth;
-    private TextMeshProUGUI textMeshProUGUI;
+
+    private Slider healthBar;
 
     public void Death()
     {
@@ -50,7 +52,9 @@ public class CharacterHealth : MonoBehaviour
 
     private void Start()
     {
-        textMeshProUGUI = GameObject.Find("Health UI").GetComponent<TextMeshProUGUI>();
+        healthBar = GameObject.Find("Health UI").transform.Find("Slider").GetComponent<Slider>();
+
+        healthBar.maxValue = maxHealth;
         currentHealth = maxHealth;
     }
 
@@ -62,6 +66,6 @@ public class CharacterHealth : MonoBehaviour
 
     private void UpdateUI()
     {
-        textMeshProUGUI.text = string.Format("Health: {0}", currentHealth);
+        healthBar.value = currentHealth;
     }
 }

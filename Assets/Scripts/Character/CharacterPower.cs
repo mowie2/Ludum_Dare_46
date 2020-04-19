@@ -9,12 +9,11 @@ public class CharacterPower : MonoBehaviour
 
     private float currentPowerLevel;
     private Slider powerBar;
-    private TextMeshProUGUI textMeshProUGUI;
 
     public void AddPower(float amount)
     {
         currentPowerLevel += amount;
-        if(currentPowerLevel > maxPowerLevel)
+        if (currentPowerLevel > maxPowerLevel)
         {
             currentPowerLevel = maxPowerLevel;
         }
@@ -57,8 +56,7 @@ public class CharacterPower : MonoBehaviour
 
     private void Start()
     {
-        textMeshProUGUI = GameObject.Find("Power UI").GetComponent<TextMeshProUGUI>();
-        powerBar = transform.Find("Power Canvas").Find("Powerbar").GetComponent<Slider>();
+        powerBar = GameObject.Find("Power UI").transform.Find("Slider").GetComponent<Slider>();
 
         powerBar.maxValue = maxPowerLevel;
         currentPowerLevel = maxPowerLevel;
@@ -76,6 +74,5 @@ public class CharacterPower : MonoBehaviour
     private void UpdateUI()
     {
         powerBar.value = currentPowerLevel;
-        textMeshProUGUI.text = string.Format("Power: {0}%", (currentPowerLevel / maxPowerLevel) * 100);
     }
 }
