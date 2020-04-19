@@ -14,6 +14,10 @@ public class CharacterPower : MonoBehaviour
     public void AddPower(float amount)
     {
         currentPowerLevel += amount;
+        if(currentPowerLevel > maxPowerLevel)
+        {
+            currentPowerLevel = maxPowerLevel;
+        }
         StartCoroutine(PowerIncreasePopupText(amount));
     }
 

@@ -8,10 +8,15 @@ public class CharacterShield : MonoBehaviour
     CharacterPower myCharacterPower;
     float shieldPowerDrain;
     Coroutine powerDrainCoroutine;
+
+    Transform shieldComponent;
     void Start()
     {
         shieldPowerDrain = 6f;
         myCharacterPower = GetComponent<CharacterPower>();
+        shieldComponent = transform.Find("Shield");
+
+        shieldComponent.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -24,13 +29,20 @@ public class CharacterShield : MonoBehaviour
 
         if (Input.GetMouseButtonUp(1))
         {
-            myCharacterPower.StopPowerDrain(powerDrainCoroutine);
-            powerDrainCoroutine = null;
+            TurnOffShield();
         }
     }
 
     private void TurnOnShield()
     {
+        shieldComponent.gameObject.SetActive(true);
         powerDrainCoroutine = myCharacterPower.DrainOverASecond(shieldPowerDrain);
+    }
+
+    private void TurnOffShield()
+    {
+        myCharacterPower.StopPowerDrain(powerDrainCoroutine);
+        powerDrainCoroutine = null;
+        shieldComponent.gameObject.SetActive(false);
     }
 }

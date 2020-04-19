@@ -15,7 +15,7 @@ public class CharacterHealth : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void DoDamage(int damageAmount)
+    public void DoDamage(float damageAmount)
     {
         currentHealth -= damageAmount;
         if (currentHealth <= 0) Death();

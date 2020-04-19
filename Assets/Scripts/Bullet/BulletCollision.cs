@@ -24,6 +24,7 @@ public class BulletCollision : MonoBehaviour
         if (collision.gameObject.CompareTag(GameObjectTagBulletCameFrom)) return;
 
         if (collision.gameObject.CompareTag("Enemy")) collision.gameObject.GetComponent<EnemyHealth>().DoDamage(bulletDamage);
+        if (collision.gameObject.CompareTag("Player") && collision.gameObject.name != "Outershield") collision.gameObject.GetComponent<CharacterHealth>().DoDamage(bulletDamage);
 
         if (collision != null) DestroyBullet();
     }
