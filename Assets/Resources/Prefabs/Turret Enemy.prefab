@@ -944,8 +944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectingRange: 10
-  fireRate: 0.2
-  moveSpeed: 0
+  fireRate: 0.7
 --- !u!114 &1571253872815443776
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -508,10 +508,9 @@ GameObject:
   - component: {fileID: 5468342992615015839}
   - component: {fileID: 4687018990032688806}
   - component: {fileID: 6372043184962783266}
-  - component: {fileID: 8240981891162271319}
-  - component: {fileID: 8795137822059860205}
   - component: {fileID: 8382853161611957879}
   - component: {fileID: 6899246308468878541}
+  - component: {fileID: 1438772329}
   m_Layer: 10
   m_Name: All_face
   m_TagString: Enemy
@@ -633,35 +632,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e80a94ea5ad26f442ba55ffe66066edc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8240981891162271319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4376589934623215265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2e7d644b8a0618428d8d89206587d96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletColour: {r: 0.9056604, g: 0, b: 0.12755714, a: 1}
-  bulletOrigin: {fileID: 916585708420372315}
---- !u!114 &8795137822059860205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4376589934623215265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d669b6619687d944baaa26149acf8dba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detectingRange: 3
-  fireRate: 0
-  moveSpeed: 4
 --- !u!60 &8382853161611957879
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -712,6 +682,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageOnCollision: 35
+--- !u!114 &1438772329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4376589934623215265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcc4142a61f08424f876070342fc73cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 4
 --- !u!1 &5249518316979701732
 GameObject:
   m_ObjectHideFlags: 0

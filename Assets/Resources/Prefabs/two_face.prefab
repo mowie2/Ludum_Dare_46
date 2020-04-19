@@ -1038,6 +1038,7 @@ GameObject:
   - component: {fileID: 4217568578506733762}
   - component: {fileID: 3662713307453867640}
   - component: {fileID: 4703830231663855069}
+  - component: {fileID: 1689282253}
   m_Layer: 10
   m_Name: two_face
   m_TagString: Enemy
@@ -1226,8 +1227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectingRange: 7
-  fireRate: 0.3
-  moveSpeed: 2
+  fireRate: 1.4
 --- !u!114 &4703830231663855069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1241,6 +1241,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageOnCollision: 5
+--- !u!114 &1689282253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8387615947285665844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcc4142a61f08424f876070342fc73cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
 --- !u!1 &8780338269599893067
 GameObject:
   m_ObjectHideFlags: 0

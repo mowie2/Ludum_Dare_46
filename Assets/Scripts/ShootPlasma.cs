@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Shooting : MonoBehaviour
+public class ShootPlasma : MonoBehaviour
 {
     private readonly float shootingPowerCost = 2;
 
