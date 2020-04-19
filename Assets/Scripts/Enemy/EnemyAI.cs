@@ -21,6 +21,33 @@ public class EnemyAI : MonoBehaviour
         Right
     }
 
+    private bool CanSeePlayer()
+    {
+        Vector3 currentPositon = transform.position;
+        Vector3 direction = player.transform.position - currentPositon;
+        direction.Normalize();
+
+        Debug.DrawRay(currentPositon, direction);
+
+        var raycast = Physics2D.RaycastAll(transform.position, direction, detectingRange);
+        Debug.Log(raycast.Length);
+
+        foreach (var hit in raycast)
+        {
+            if (hit.transform.CompareTag("Player"))
+            {
+                return true;
+            }
+
+            if (hit.transform.CompareTag("Floor & Wall"))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     private void DetectPlatformEdge()
     {
         var rightSide = new Vector2(transform.position.x + 1, transform.position.y);
@@ -89,9 +116,14 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerIsInShootingRange() && shootingCoroutine == null && fireRate > 0) shootingCoroutine = StartCoroutine(ShootAtPlayer());
+        Debug.Log(CanSeePlayer());
 
-        if (!PlayerIsInShootingRange() && shootingCoroutine != null)
+        if (PlayerIsInShootingRange() && CanSeePlayer() && shootingCoroutine == null)
+        {
+            shootingCoroutine = StartCoroutine(ShootAtPlayer());
+        }
+
+        if (!CanSeePlayer() && shootingCoroutine != null || !PlayerIsInShootingRange() && shootingCoroutine != null)
         {
             StopCoroutine(shootingCoroutine);
             shootingCoroutine = null;

@@ -943,7 +943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d669b6619687d944baaa26149acf8dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectingRange: 4
+  detectingRange: 10
   fireRate: 0.2
   moveSpeed: 0
 --- !u!114 &1571253872815443776

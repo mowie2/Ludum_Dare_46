@@ -9,6 +9,8 @@ public class CharacterPower : MonoBehaviour
 
     private float currentPowerLevel;
     private Slider powerBar;
+    private Image powerBarImage;
+    private Color powerBarNormalColor;
 
     public void AddPower(float amount)
     {
@@ -61,6 +63,8 @@ public class CharacterPower : MonoBehaviour
         {
             powerBar = powerUIGameObject.transform.Find("Slider").GetComponent<Slider>();
             powerBar.maxValue = maxPowerLevel;
+            powerBarImage = powerBar.transform.Find("Fill Area").Find("Fill").GetComponent<Image>();
+            powerBarNormalColor = powerBarImage.color;
         }
 
         currentPowerLevel = maxPowerLevel;
@@ -78,5 +82,8 @@ public class CharacterPower : MonoBehaviour
     private void UpdateUI()
     {
         powerBar.value = currentPowerLevel;
+
+        if (currentPowerLevel <= 20) powerBarImage.color = Color.red;
+        else powerBarImage.color = powerBarNormalColor;
     }
 }
