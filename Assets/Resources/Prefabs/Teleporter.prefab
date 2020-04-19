@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Color: {r: 0, g: 0.11391264, b: 0.46226418, a: 1}
   m_Intensity: 0.54
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000137f43f5c3d76e43e34ac6da91594ca0b5e2f68d
+  m_ApplyToSortingLayers: 00000000137f43f5c3d76e43e34ac6da91594ca05bd2067ab5e2f68dcbcf9e83
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -178,7 +178,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
