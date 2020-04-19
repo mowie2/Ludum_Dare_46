@@ -12,6 +12,10 @@ public class CharacterHealth : MonoBehaviour
 
     private Slider healthBar;
 
+    private Image healthBarImage;
+
+    private Color healthBarNormalColor;
+
     public void Death()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -57,6 +61,8 @@ public class CharacterHealth : MonoBehaviour
         {
             healthBar = healthUIGameObject.transform.Find("Slider").GetComponent<Slider>();
             healthBar.maxValue = maxHealth;
+            healthBarImage = healthBar.transform.Find("Fill Area").Find("Fill").GetComponent<Image>();
+            healthBarNormalColor = healthBarImage.color;
         }
 
         currentHealth = maxHealth;
@@ -71,5 +77,8 @@ public class CharacterHealth : MonoBehaviour
     private void UpdateUI()
     {
         healthBar.value = currentHealth;
+
+        if (currentHealth <= 20) healthBarImage.color = Color.red;
+        else healthBarImage.color = healthBarNormalColor;
     }
 }
