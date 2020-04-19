@@ -17,7 +17,7 @@ public class Shooting : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, bulletOrigin.position, Quaternion.identity);
         bullet.GetComponent<SpriteRenderer>().color = bulletColour;
         bullet.GetComponent<BulletMovement>().direction = direction;
-        bullet.GetComponent<BulletCollision>().GameObjectBulletCameFrom = gameObject;
+        bullet.GetComponent<BulletCollision>().GameObjectTagBulletCameFrom = gameObject.tag;
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         bullet.transform.rotation = Quaternion.Euler(0, 0, angle);
