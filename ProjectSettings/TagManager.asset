@@ -65,3 +65,6 @@ TagManager:
   - name: Player
     uniqueID: 2381767349
     locked: 0
+  - name: Wall & Floor
+    uniqueID: 2208223179
+    locked: 0

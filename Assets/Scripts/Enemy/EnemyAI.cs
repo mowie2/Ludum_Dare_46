@@ -71,7 +71,7 @@ public class EnemyAI : MonoBehaviour
     {
         shootingComponent = GetComponent<Shooting>();
         myRigidbody2D = GetComponent<Rigidbody2D>();
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.Find("Character");
         moveDirectionsInFloat.Add(MoveDirection.Left, 1);
         moveDirectionsInFloat.Add(MoveDirection.Right, -1);
 
