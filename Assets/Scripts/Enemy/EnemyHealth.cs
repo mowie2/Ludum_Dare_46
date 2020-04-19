@@ -27,9 +27,11 @@ public class EnemyHealth : MonoBehaviour
 
     private void AfterDeathText()
     {
+        // add random change to not say anything and more texts to say
+
         float timeToShowText = 1;
 
-        GetComponent<EnemySpeech>().Say("Allah save me!", timeToShowText);
+        GetComponent<EnemySpeech>().Say("Arghhhh!", timeToShowText);
         var textCanvas = transform.Find("Text Canvas");
         Vector3 temp = textCanvas.position;
         textCanvas.SetParent(null);

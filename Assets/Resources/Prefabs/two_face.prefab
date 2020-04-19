@@ -1129,6 +1129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectingRange: 3
   fireRate: 0.3
+  moveSpeed: 2
 --- !u!1 &8780338269599893067
 GameObject:
   m_ObjectHideFlags: 0

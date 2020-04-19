@@ -3,7 +3,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class BulletCollision : MonoBehaviour
 {
-    public GameObject GameObjectBulletCameFrom;
+    public string GameObjectTagBulletCameFrom;
 
     private readonly float bulletDamage = 20;
 
@@ -21,7 +21,7 @@ public class BulletCollision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject == GameObjectBulletCameFrom) return;
+        if (collision.gameObject.CompareTag(GameObjectTagBulletCameFrom)) return;
 
         if (collision.gameObject.CompareTag("Enemy")) collision.gameObject.GetComponent<EnemyHealth>().DoDamage(bulletDamage);
 

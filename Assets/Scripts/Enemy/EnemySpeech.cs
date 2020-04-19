@@ -19,9 +19,4 @@ public class EnemySpeech : MonoBehaviour
         yield return new WaitForSeconds(secondsToShow);
         textComponent.color = Color.clear;
     }
-
-    private void Start()
-    {
-        Say("Death to the infidel!", 3);
-    }
 }
