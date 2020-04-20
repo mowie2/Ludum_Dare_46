@@ -32,6 +32,7 @@ public class ShootPlasma : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && gameObject.CompareTag("Player"))
         {
+            Scoreboard.scoreboard_instance.IncreaseShots();
             GetComponent<CharacterPower>().DrainInstantly(shootingPowerCost);
             Shoot(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }

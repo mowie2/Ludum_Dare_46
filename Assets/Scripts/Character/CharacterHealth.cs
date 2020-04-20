@@ -71,6 +71,7 @@ public class CharacterHealth : MonoBehaviour
 
     private void UpdateUI()
     {
+        if (healthAmountLeftImage == null) return;
         healthAmountLeftImage.fillAmount = currentHealth / 100;
     }
 }

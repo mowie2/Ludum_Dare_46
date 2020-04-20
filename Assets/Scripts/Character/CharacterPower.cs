@@ -78,6 +78,7 @@ public class CharacterPower : MonoBehaviour
 
     private void UpdateUI()
     {
+        if (healthAmountLeftImage == null) return;
         healthAmountLeftImage.fillAmount = currentPowerLevel / 100;
     }
 }

@@ -21,24 +21,18 @@ public class Scoreboard : MonoBehaviour
         if (scoreboard_instance == null)
         {
             scoreboard_instance = this;
-            DontDestroyOnLoad(this);
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
         
     }
 
     void Start()
     {
-        deaths = GameObject.Find("Deathcount");
-        enemiesKilled = GameObject.Find("Killcount");
-        bulletsFired = GameObject.Find("Shotcount");
 
-        deaths.GetComponent<TextMeshProUGUI>().text = score_deaths.ToString();
-        bulletsFired.GetComponent<TextMeshProUGUI>().text = score_shots.ToString();
-        enemiesKilled.GetComponent<TextMeshProUGUI>().text = score_kills.ToString();
 
 
     }
@@ -47,31 +41,32 @@ public class Scoreboard : MonoBehaviour
     void Update()
     {
 
-        //
-        //
-        //
-    }
+        if (SceneManager.GetActiveScene().name != "Endscreen") return;
 
+        deaths = GameObject.Find("Deathcount");
+        enemiesKilled = GameObject.Find("Killcount");
+        bulletsFired = GameObject.Find("Shotcount");
+
+
+        enemiesKilled.GetComponent<TextMeshProUGUI>().text = score_kills.ToString();
+        deaths.GetComponent<TextMeshProUGUI>().text = score_deaths.ToString();
+        bulletsFired.GetComponent<TextMeshProUGUI>().text = score_shots.ToString();
+
+    }
 
     public void IncreaseKills()
     {
         score_kills++;
-        if (SceneManager.GetActiveScene().name != "Endscreen") return;
-        enemiesKilled.GetComponent<TextMeshProUGUI>().text = score_kills.ToString();
     }
 
     public void IncreaseDeaths()
     {
         score_deaths++;
-        if (SceneManager.GetActiveScene().name != "Endscreen") return;
-        deaths.GetComponent<TextMeshProUGUI>().text = score_deaths.ToString();
     }
 
     public void IncreaseShots()
     {
         score_shots++;
-        if (SceneManager.GetActiveScene().name != "Endscreen") return;
-        bulletsFired.GetComponent<TextMeshProUGUI>().text = score_shots.ToString();
     }
 
 }
