@@ -66,5 +66,10 @@ public class CharacterMovement : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded()) jumping = true;
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 }

@@ -11,11 +11,13 @@ public class Scoreboard : MonoBehaviour
     GameObject enemiesKilled;
     GameObject deaths;
     GameObject power;
+    GameObject grenade;
 
     private float score_deaths;
     private float score_shots;
     private float score_kills;
     private float score_power_consumed;
+    private float score_grenade_used;
 
     public static Scoreboard scoreboard_instance;
     private void Awake()
@@ -32,12 +34,6 @@ public class Scoreboard : MonoBehaviour
         
     }
 
-    void Start()
-    {
-
-
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -49,12 +45,14 @@ public class Scoreboard : MonoBehaviour
         enemiesKilled = GameObject.Find("Killcount");
         bulletsFired = GameObject.Find("Shotcount");
         power = GameObject.Find("Powercount");
+        grenade = GameObject.Find("Grenadecount");
 
 
         enemiesKilled.GetComponent<TextMeshProUGUI>().text = score_kills.ToString();
         deaths.GetComponent<TextMeshProUGUI>().text = score_deaths.ToString();
         bulletsFired.GetComponent<TextMeshProUGUI>().text = score_shots.ToString();
         power.GetComponent<TextMeshProUGUI>().text = score_power_consumed.ToString();
+        grenade.GetComponent<TextMeshProUGUI>().text = score_grenade_used.ToString();
 
     }
 
@@ -76,6 +74,11 @@ public class Scoreboard : MonoBehaviour
     public void IncreasePowerConsume(float amount)
     {
         score_power_consumed += amount;
+    }
+
+    public void IncreaseGrenadesUsed()
+    {
+        score_grenade_used++;
     }
 
 }
