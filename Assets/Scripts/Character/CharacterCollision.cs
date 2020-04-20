@@ -48,6 +48,9 @@ public class CharacterCollision : MonoBehaviour
                 case "Level 1":
                     SceneManager.LoadScene("Level 2");
                     break;
+                default:
+                    SceneManager.LoadScene("Endscreen");
+                    break;
             }
         }
     }
