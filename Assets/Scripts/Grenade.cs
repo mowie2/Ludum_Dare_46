@@ -20,6 +20,11 @@ public class Grenade : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        GetComponent<AudioSource>().Play();
+    }
+
     // Start is called before the first frame update
     private void Start()
     {
