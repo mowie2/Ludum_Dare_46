@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
@@ -8,6 +9,7 @@ public class EnemyHealth : MonoBehaviour
     private float currentHealth;
     private bool dead;
     private Slider healthBar;
+    private readonly List<string> deathText = new List<string>() { "Arghhhh!", "Clear my browser history", "Uhhhggg", "AAAAAAaaaaaa,,,," };
 
     public void Death()
     {
@@ -33,7 +35,7 @@ public class EnemyHealth : MonoBehaviour
         var textCanvas = transform.Find("Text Canvas");
         float timeToShowText = 1;
 
-        GetComponent<EnemySpeech>().Say("Arghhhh!", timeToShowText);
+        GetComponent<EnemySpeech>().Say(deathText[Random.Range(0,deathText.Count)], timeToShowText);
 
         textCanvas.GetComponent<AudioSource>().Play();
         Vector3 temp = textCanvas.position;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyShooting : MonoBehaviour
 {
-    private readonly List<string> taunts = new List<string>() { "DIE!", "KILL HIM", "HI" };
+    private readonly List<string> taunts = new List<string>() { "DIE!", "KILL HIM", "Tthere he is!" };
     [SerializeField] private float detectingRange;
     [SerializeField] private float fireRate;
 
