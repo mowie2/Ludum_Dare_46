@@ -9,6 +9,7 @@ public class CharacterHealth : MonoBehaviour
     private readonly float maxHealth = 100;
 
     private float currentHealth;
+    [SerializeField] private bool Immortal;
 
     private bool dead;
     private Slider healthBar;
@@ -19,11 +20,13 @@ public class CharacterHealth : MonoBehaviour
 
     public void Death()
     {
+        Scoreboard.scoreboard_instance.IncreaseDeaths();
         dead = true;
     }
 
     public void DoDamage(float damageAmount)
     {
+        if (Immortal) return;
         currentHealth -= damageAmount;
         if (currentHealth <= 0) Death();
     }

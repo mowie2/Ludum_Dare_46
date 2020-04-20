@@ -11,7 +11,7 @@ public class CharacterPower : MonoBehaviour
     private Slider powerBar;
     private Image powerBarImage;
     private Color powerBarNormalColor;
-
+    [SerializeField] private bool noEnergyCost;
     public void AddPower(float amount)
     {
         currentPowerLevel += amount;
@@ -24,11 +24,13 @@ public class CharacterPower : MonoBehaviour
 
     public void DrainInstantly(float amount)
     {
+        if (noEnergyCost) return;
         currentPowerLevel -= amount;
     }
 
     public Coroutine DrainOverASecond(float drainAmountASecond)
     {
+        if (noEnergyCost) drainAmountASecond = 0;
         return StartCoroutine(DrainPower(drainAmountASecond));
     }
 
