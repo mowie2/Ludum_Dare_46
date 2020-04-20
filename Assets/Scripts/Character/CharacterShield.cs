@@ -21,6 +21,8 @@ public class CharacterShield : MonoBehaviour
 
     private void TurnOffShield()
     {
+        GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("Sound/ShieldPowerDown");
+        GetComponent<AudioSource>().Play();
         myCharacterPower.StopPowerDrain(powerDrainCoroutine);
         powerDrainCoroutine = null;
         shieldTransform.gameObject.SetActive(false);
@@ -30,7 +32,8 @@ public class CharacterShield : MonoBehaviour
     {
         shieldTransform.gameObject.SetActive(true);
         powerDrainCoroutine = myCharacterPower.DrainOverASecond(shieldPowerDrain);
-        shieldTransform.GetComponent<AudioSource>().Play();
+        GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("Sound/ShieldPowerUp");
+        GetComponent<AudioSource>().Play();
     }
 
     // Update is called once per frame

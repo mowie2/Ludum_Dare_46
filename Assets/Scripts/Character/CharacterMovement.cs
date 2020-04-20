@@ -9,6 +9,7 @@ public class CharacterMovement : MonoBehaviour
 
     private CharacterPower characterPower;
     private bool jumping;
+    private AudioClip jumpSound;
     private Coroutine movementDrainCoruntine;
     private Collider2D myCollider2D;
     private Rigidbody2D myRigidbody2D;
@@ -61,11 +62,17 @@ public class CharacterMovement : MonoBehaviour
         myRigidbody2D = GetComponent<Rigidbody2D>();
         myCollider2D = GetComponent<Collider2D>();
         characterPower = GetComponent<CharacterPower>();
+        jumpSound = Resources.Load<AudioClip>("Sound/JumpSound");
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded()) jumping = true;
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        {
+            jumping = true;
+            GetComponent<AudioSource>().clip = jumpSound;
+            GetComponent<AudioSource>().Play();
+        }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
