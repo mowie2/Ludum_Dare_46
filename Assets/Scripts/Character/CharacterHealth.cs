@@ -10,6 +10,7 @@ public class CharacterHealth : MonoBehaviour
 
     private float currentHealth;
 
+    private bool dead;
     private Slider healthBar;
 
     private Image healthBarImage;
@@ -18,7 +19,7 @@ public class CharacterHealth : MonoBehaviour
 
     public void Death()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        dead = true;
     }
 
     public void DoDamage(float damageAmount)
@@ -72,6 +73,8 @@ public class CharacterHealth : MonoBehaviour
     {
         UpdateUI();
         FallingCheck();
+
+        if (dead) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void UpdateUI()
