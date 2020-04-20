@@ -60,7 +60,7 @@ public class CharacterHealth : MonoBehaviour
         var healthUIGameObject = GameObject.Find("Health UI");
         if (healthUIGameObject != null)
         {
-            healthBar = healthUIGameObject.transform.Find("Slider").GetComponent<Slider>();
+            healthBar = healthUIGameObject.GetComponent<Slider>();
             healthBar.maxValue = maxHealth;
             healthBarImage = healthBar.transform.Find("Fill Area").Find("Fill").GetComponent<Image>();
             healthBarNormalColor = healthBarImage.color;

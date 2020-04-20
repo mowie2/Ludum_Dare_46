@@ -61,7 +61,7 @@ public class CharacterPower : MonoBehaviour
         var powerUIGameObject = GameObject.Find("Power UI");
         if (powerUIGameObject != null)
         {
-            powerBar = powerUIGameObject.transform.Find("Slider").GetComponent<Slider>();
+            powerBar = powerUIGameObject.GetComponent<Slider>();
             powerBar.maxValue = maxPowerLevel;
             powerBarImage = powerBar.transform.Find("Fill Area").Find("Fill").GetComponent<Image>();
             powerBarNormalColor = powerBarImage.color;
