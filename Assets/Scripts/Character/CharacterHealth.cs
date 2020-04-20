@@ -12,11 +12,8 @@ public class CharacterHealth : MonoBehaviour
     [SerializeField] private bool Immortal;
 
     private bool dead;
-    private Slider healthBar;
 
-    private Image healthBarImage;
-
-    private Color healthBarNormalColor;
+    private Image healthAmountLeftImage;
 
     public void Death()
     {
@@ -60,15 +57,7 @@ public class CharacterHealth : MonoBehaviour
 
     private void Start()
     {
-        var healthUIGameObject = GameObject.Find("Health UI");
-        if (healthUIGameObject != null)
-        {
-            healthBar = healthUIGameObject.GetComponent<Slider>();
-            healthBar.maxValue = maxHealth;
-            healthBarImage = healthBar.transform.Find("Fill Area").Find("Fill").GetComponent<Image>();
-            healthBarNormalColor = healthBarImage.color;
-        }
-
+        healthAmountLeftImage = GameObject.Find("Health Amount Left").GetComponent<Image>();
         currentHealth = maxHealth;
     }
 
@@ -82,9 +71,6 @@ public class CharacterHealth : MonoBehaviour
 
     private void UpdateUI()
     {
-        healthBar.value = currentHealth;
-
-        if (currentHealth <= 20) healthBarImage.color = Color.red;
-        else healthBarImage.color = healthBarNormalColor;
+        healthAmountLeftImage.fillAmount = currentHealth / 100;
     }
 }
