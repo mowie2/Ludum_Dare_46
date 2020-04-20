@@ -17,7 +17,6 @@ public class CharacterHealth : MonoBehaviour
 
     public void Death()
     {
-        Scoreboard.scoreboard_instance.IncreaseDeaths();
         dead = true;
     }
 
@@ -66,7 +65,11 @@ public class CharacterHealth : MonoBehaviour
         UpdateUI();
         FallingCheck();
 
-        if (dead) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (dead)
+        {
+            Scoreboard.scoreboard_instance.IncreaseDeaths();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     private void UpdateUI()

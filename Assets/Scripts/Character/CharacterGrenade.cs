@@ -9,6 +9,7 @@ public class CharacterGrenade : MonoBehaviour
 
     private void ThrowGrenade()
     {
+        Scoreboard.scoreboard_instance.IncreaseGrenadesUsed();
         GetComponent<CharacterPower>().DrainInstantly(powerCost);
         var grenade = Instantiate(Resources.Load<GameObject>("Prefabs/Grenade"), transform.position, Quaternion.identity);
 

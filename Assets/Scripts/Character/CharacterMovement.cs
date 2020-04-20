@@ -74,5 +74,10 @@ public class CharacterMovement : MonoBehaviour
             GetComponent<AudioSource>().clip = jumpSound;
             GetComponent<AudioSource>().Play();
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 }
