@@ -28,6 +28,7 @@ public class CharacterPower : MonoBehaviour
     {
         if (noEnergyCost) return;
         currentPowerLevel -= amount;
+        Scoreboard.scoreboard_instance.IncreasePowerConsume(amount);
     }
 
     public Coroutine DrainOverASecond(float drainAmountASecond)
@@ -45,6 +46,7 @@ public class CharacterPower : MonoBehaviour
     {
         while (true)
         {
+            Scoreboard.scoreboard_instance.IncreasePowerConsume(drainAmount);
             currentPowerLevel -= drainAmount;
             yield return new WaitForSeconds(1);
         }

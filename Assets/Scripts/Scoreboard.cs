@@ -10,10 +10,12 @@ public class Scoreboard : MonoBehaviour
     GameObject bulletsFired;
     GameObject enemiesKilled;
     GameObject deaths;
+    GameObject power;
 
-    private int score_deaths;
-    private int score_shots;
-    private int score_kills;
+    private float score_deaths;
+    private float score_shots;
+    private float score_kills;
+    private float score_power_consumed;
 
     public static Scoreboard scoreboard_instance;
     private void Awake()
@@ -46,11 +48,13 @@ public class Scoreboard : MonoBehaviour
         deaths = GameObject.Find("Deathcount");
         enemiesKilled = GameObject.Find("Killcount");
         bulletsFired = GameObject.Find("Shotcount");
+        power = GameObject.Find("Powercount");
 
 
         enemiesKilled.GetComponent<TextMeshProUGUI>().text = score_kills.ToString();
         deaths.GetComponent<TextMeshProUGUI>().text = score_deaths.ToString();
         bulletsFired.GetComponent<TextMeshProUGUI>().text = score_shots.ToString();
+        power.GetComponent<TextMeshProUGUI>().text = score_power_consumed.ToString();
 
     }
 
@@ -67,6 +71,11 @@ public class Scoreboard : MonoBehaviour
     public void IncreaseShots()
     {
         score_shots++;
+    }
+
+    public void IncreasePowerConsume(float amount)
+    {
+        score_power_consumed += amount;
     }
 
 }

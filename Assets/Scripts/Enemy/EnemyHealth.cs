@@ -11,6 +11,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void Death()
     {
+        Scoreboard.scoreboard_instance.IncreaseKills();
         AfterDeathText();
         LootDrop();
 
