@@ -8,9 +8,7 @@ public class CharacterPower : MonoBehaviour
     private readonly float maxPowerLevel = 100;
 
     private float currentPowerLevel;
-    private Slider powerBar;
-    private Image powerBarImage;
-    private Color powerBarNormalColor;
+    private Image healthAmountLeftImage;
 
     public void AddPower(float amount)
     {
@@ -58,14 +56,7 @@ public class CharacterPower : MonoBehaviour
 
     private void Start()
     {
-        var powerUIGameObject = GameObject.Find("Power UI");
-        if (powerUIGameObject != null)
-        {
-            powerBar = powerUIGameObject.GetComponent<Slider>();
-            powerBar.maxValue = maxPowerLevel;
-            powerBarImage = powerBar.transform.Find("Fill Area").Find("Fill").GetComponent<Image>();
-            powerBarNormalColor = powerBarImage.color;
-        }
+        healthAmountLeftImage = GameObject.Find("Power Amount Left").GetComponent<Image>();
 
         currentPowerLevel = maxPowerLevel;
 
@@ -81,9 +72,6 @@ public class CharacterPower : MonoBehaviour
 
     private void UpdateUI()
     {
-        powerBar.value = currentPowerLevel;
-
-        if (currentPowerLevel <= 20) powerBarImage.color = Color.red;
-        else powerBarImage.color = powerBarNormalColor;
+        healthAmountLeftImage.fillAmount = currentPowerLevel / 100;
     }
 }
