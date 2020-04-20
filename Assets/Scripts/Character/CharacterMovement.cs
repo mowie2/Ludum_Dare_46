@@ -50,6 +50,7 @@ public class CharacterMovement : MonoBehaviour
         foreach (var raycastHit in hit)
         {
             if (raycastHit.collider == myCollider2D) continue;
+            if (raycastHit.collider == transform.Find("Shield").Find("Outershield").GetComponent<Collider2D>()) continue;
 
             return true;
         }
