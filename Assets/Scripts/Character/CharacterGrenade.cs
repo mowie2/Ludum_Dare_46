@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CharacterGrenade : MonoBehaviour
 {
-    private readonly float powerCost = 0;
-    private readonly float throwStrength = 10;
+    private readonly float powerCost = 20;
+    private readonly float throwStrength = 15;
 
     private void ThrowGrenade()
     {

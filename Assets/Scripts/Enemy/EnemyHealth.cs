@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour
     private readonly float maxHealth = 100;
 
     private float currentHealth;
+    private bool dead;
     private Slider healthBar;
 
     public void Death()
@@ -21,19 +22,14 @@ public class EnemyHealth : MonoBehaviour
         healthBar.GetComponent<CanvasGroup>().alpha = 1;
         currentHealth -= damageAmount;
 
-        if (currentHealth <= 0) Death();
+        if (currentHealth <= 0) dead = true;
 
         healthBar.value = currentHealth;
     }
 
     private void AfterDeathText()
     {
-
-        if (GetComponent<EnemySpeech>() == null) return;
         var textCanvas = transform.Find("Text Canvas");
-
-        // add random change to not say anything and more texts to say
-
         float timeToShowText = 1;
 
         GetComponent<EnemySpeech>().Say("Arghhhh!", timeToShowText);
@@ -75,8 +71,8 @@ public class EnemyHealth : MonoBehaviour
         healthBar.GetComponent<CanvasGroup>().alpha = 0;
     }
 
-    // Update is called once per frame
     private void Update()
     {
+        if (dead) Death();
     }
 }

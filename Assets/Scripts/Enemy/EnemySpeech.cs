@@ -12,7 +12,8 @@ public class EnemySpeech : MonoBehaviour
 
     private IEnumerator ShowText(string text, float secondsToShow)
     {
-        var textComponent = transform.Find("Text Canvas").Find("Text").GetComponent<TextMeshProUGUI>();
+        var textCanvas = transform.Find("Text Canvas");
+        var textComponent = textCanvas.Find("Text").GetComponent<TextMeshProUGUI>();
 
         textComponent.color = Color.white;
         textComponent.text = text;

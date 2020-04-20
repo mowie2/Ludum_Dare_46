@@ -8,23 +8,6 @@ public class Grenade : MonoBehaviour
     {
         var shootPlasma = GetComponent<ShootPlasma>();
 
-        /*
-        shootPlasma.Shoot(new Vector2(transform.position.x, transform.position.y + 1));
-        shootPlasma.Shoot(new Vector2(transform.position.x, transform.position.y - 1));
-        shootPlasma.Shoot(new Vector2(transform.position.x + 1, transform.position.y));
-        shootPlasma.Shoot(new Vector2(transform.position.x - 1, transform.position.y));
-
-        shootPlasma.Shoot(new Vector2(transform.position.x + 1, transform.position.y + 1));
-        shootPlasma.Shoot(new Vector2(transform.position.x - 1, transform.position.y + 1));
-        shootPlasma.Shoot(new Vector2(transform.position.x + 1, transform.position.y - 1));
-        shootPlasma.Shoot(new Vector2(transform.position.x - 1, transform.position.y - 1));
-
-        shootPlasma.Shoot(new Vector2(transform.position.x + 0.5f, transform.position.y + 0.5f));
-        shootPlasma.Shoot(new Vector2(transform.position.x + 0.5f, transform.position.y - 0.5f));
-        shootPlasma.Shoot(new Vector2(transform.position.x - 0.5f, transform.position.y + 0.5f));
-        shootPlasma.Shoot(new Vector2(transform.position.x - 0.5f, transform.position.y + 0.5f));
-    */
-
         for (float x = -1; x < 1; x += 0.3f)
         {
             for (float y = -1; y < 1; y += 0.3f)
